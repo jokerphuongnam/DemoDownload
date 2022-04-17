@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 listItems.map { it.first }.toTypedArray(),
                 -1
             ) { dialog, which -> // update the selected item which is selected by the user
-                vm.download(listItems.map { it.second }[which])
+                vm.download(listItems[which].second)
                 registerReceiver(onComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
                 registerReceiver(
                     onNotificationClick,

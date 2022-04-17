@@ -5,13 +5,13 @@ sealed class DownloadInfo {
         val name: String,
         val status: String,
         val reason: String
-    ): DownloadInfo() {
+    ) : DownloadInfo() {
         override fun toString(): String {
             return "Name: $name\nDownload Status: $status, $reason"
         }
     }
 
-    class DontHasInfo: DownloadInfo() {
+    object DontHasInfo : DownloadInfo() {
         override fun toString(): String {
             return "NO_STATUS_INFO"
         }

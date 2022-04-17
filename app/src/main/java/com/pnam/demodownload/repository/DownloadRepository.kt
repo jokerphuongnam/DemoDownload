@@ -47,7 +47,7 @@ class DownloadRepository private constructor(
         if (cursor?.moveToFirst() == true) {
             return downloadStatus(cursor)
         }
-        return DownloadInfo.DontHasInfo()
+        return DownloadInfo.DontHasInfo
     }
 
     @SuppressLint("Range")
@@ -94,7 +94,6 @@ class DownloadRepository private constructor(
             DownloadManager.STATUS_RUNNING -> statusText = "STATUS_RUNNING"
             DownloadManager.STATUS_SUCCESSFUL -> {
                 statusText = "STATUS_SUCCESSFUL"
-//                name = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI))
             }
         }
         return DownloadInfo.HasInfo(
