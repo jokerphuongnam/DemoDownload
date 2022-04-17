@@ -37,6 +37,7 @@ class DownloadRepository private constructor(
         ) as DownloadManager
         val downloadPreference = downloadManager.enqueue(request)
         Download.downloads.add(Download(downloadPreference, uri.lastPathSegment ?: "unknown name"))
+        downloadIds.add(downloadPreference)
         return downloadPreference
     }
 
@@ -111,7 +112,6 @@ class DownloadRepository private constructor(
         val q = DownloadManager.Query()
         q.setFilterById(downloadId)
         var cursor = downloadManager.query(q)
-        downloadIds.add(downloadId)
         Thread {
             var preProgress = -1
             while (downloadIds.find { it == downloadId } != null && run {
